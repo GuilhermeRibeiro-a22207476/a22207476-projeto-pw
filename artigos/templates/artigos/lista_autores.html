@@ -1,0 +1,18 @@
+{% extends "artigos/layout.html" %}
+
+{% block title %}
+    Lista de Autores
+{% endblock %}
+
+{% block content %}
+    <h2>Lista de Autores</h2>
+    {% if request.user.is_authenticated %}
+        <a href="{% url 'artigos:novo_autor' %}">
+            <button>Criar Novo Autor</button>
+    {% endif %}
+    <ul>
+    {% for autor in autores %}
+        <li>{{ autor.nome }} - <a href="{% url 'artigos:lista_artigos' autor.id %}">Ver Artigos</a></li>
+    {% endfor %}
+    </ul>
+{% endblock %}

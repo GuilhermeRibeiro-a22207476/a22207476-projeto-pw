@@ -1,0 +1,20 @@
+{% extends "appBandas/layout.html" %}
+
+{% block title %}Álbum: {{ album.nome }}{% endblock %}
+
+{% block content %}
+    <h2>Detalhes do Álbum: {{ album.nome }}</h2>
+    {% if album.capa %}
+        <img src="{{ album.capa.url }}" alt="{{ album.nome }} Capa">
+    {% else %}
+        <p>Este álbum não possui capa.</p>
+    {% endif %}
+    <p><strong>Nome do Álbum:</strong> {{ album.nome }}</p>
+    <p><strong>Ano de Lançamento:</strong> {{ album.ano_lancamento }}</p>
+    <h3>Músicas do Álbum:</h3>
+    <ul>
+        {% for musica in musicas %}
+            <li><a href="{% url 'appBandas:musicas' musica.id %}">{{ musica.nome }} - {{ musica.duracao }}</a></li>
+        {% endfor %}
+    </ul>
+{% endblock %}

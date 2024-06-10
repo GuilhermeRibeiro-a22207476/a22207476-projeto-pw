@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Programação Web</title>
+    <style>
+        body {
+            background: white;
+            color: black;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Moradia Em Oslo</h1>
+        <nav>
+  <a href="{% url 'novaapp:inicio' %}">Início</a>
+  <a href="{% url 'novaapp:detalhes' %}">Detalhes</a>
+</nav>
+    </header>
+
+    <main>
+        <h2>Informações sobre o local</h2>
+        <p>Oslo, a capital da Noruega, fica no litoral sul do país, na cabeceira do fiorde de Oslo. A cidade é conhecida por suas áreas verdes e seus museus.</p>
+        <p>Várias atividades disponíveis para fazer:</p>
+        <ul>
+            <li><strong>Cruzeiro guiado pelo fiorde de Oslo em catamarã elétrico silencioso:</strong> Experimente a tranquilidade de um fiorde norueguês durante a sua viagem a Oslo neste cruzeiro silencioso pelo Fiorde de Oslo. Deslize pelas águas calmas e profundas e veja a vida selvagem e as paisagens naturais de ambos os lados do fiorde - e também aviste ilhas.</li>
+            <li><strong>Oslo Nature Walks: passeios pelas ilhas:</strong> Pegue a balsa local (por conta do visitante) para três ilhas diferentes, incluindo Hovedoya e Gressholmen, ao redor do fiorde. Explore aldeias, florestas, falésias e outros pontos turísticos. Não se esqueça de trazer o seu fato de banho e almoço.</li>
+            <li><strong>Aprenda esqui nórdico - aula particular com instrutor profissional:</strong> Cada aula é ministrada por um instrutor com experiência em treinar iniciantes, garantindo que você receba a atenção personalizada necessária para se destacar. Deslize pelas encantadoras florestas cobertas de neve e experimente em primeira mão as deslumbrantes paisagens de inverno da Noruega.</li>
+        </ul>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Casas Baratas Legais, Guilherme Ribeiro - todos os direitos reservados.</p>
+    </footer>
+
+</body>
+</html>

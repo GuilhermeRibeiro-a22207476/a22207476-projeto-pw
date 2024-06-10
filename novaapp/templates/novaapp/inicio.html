@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Programação Web</title>
+    <style>
+        body {
+            background: white;
+            color: black;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Moradia Em Oslo</h1>
+        <nav>
+  <a href="{% url 'novaapp:detalhes' %}">Detalhes</a>
+  <a href="{% url 'novaapp:informacao' %}">Informação Sobre o local</a>
+</nav>
+    </header>
+
+    <main>
+        <h2>Moradia t2 localizada em Oslo</h2>
+        <p>Esta casa vêm equipada com:</p>
+        <ul>
+            <li><strong>Cozinha:</strong> Frigorífico Combinado KUNFT KC6455, Fogão BECKEN BGS4505N IX, Micro-ondas KUBO KMW-8399.</li>
+            <li><strong>Sala de Estar:</strong> Sofá KASA Malmo Cinzento Escuro, Televisão TV CHIQ LCR32G5NW, Mesa jantar vidaXL 120x60x76 cm derivados de madeira carvalho castanho.</li>
+            <li><strong>Quarto Suite:</strong> Cama de Casal Watson HOME STORY, Armário HABITDESIGN Multiusos, Sanita PADIMAT Compacta com Tanque Smart, Banheira Anatómica PLASTIMYR Confort Rosa, Móvel com Lavatório Melamina de Madeira e Cerâmica Cinzento 60x45,5x60 cm KLEANKIN.</li>
+            <li><strong>Quarto Solteiro:</strong>vidaXL Cama boxspring 90x200 cm tecido cinzento, vidaXL Armário para CD 21x20x88 cm madeira processada branco, Secretária com Prateleiras MITSAI Riga.</li>
+        </ul>
+        <p>Preço discutido via e-mail!</p>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Casas Baratas Legais, Guilherme Ribeiro - todos os direitos reservados.</p>
+    </footer>
+
+</body>
+</html>

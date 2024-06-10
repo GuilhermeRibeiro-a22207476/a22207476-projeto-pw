@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Programação Web</title>
+    <style>
+        body {
+            background: white;
+            color: black;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Moradia Em Oslo</h1>
+        <nav>
+  <a href="{% url 'novaapp:inicio' %}">Início</a>
+  <a href="{% url 'novaapp:informacao' %}">Informação Sobre o local</a>
+</nav>
+    </header>
+
+    <main>
+        <h2>Moradia t2 localizada em Oslo</h2>
+        <p>Informações sobre o alojamento:</p>
+        <p>Melhor localização II - calmo, acolhedor e 5 min do centro
+Aconchegante, bem equipado, bem mobilado e bem cuidado, com tudo o que você normalmente precisa quando você estiver ausente por alguns dias, seja em negócios ou em férias. Tentei tornar o apartamento aconchegante, prático e confortável, para que você se sinta o mais em casa possível.
+TV na sala e no quarto, equipamento para o seu computador, utensílios de alta qualidade, máquina de lavar, secadora, lava-louças, ferro e tábua de passar roupas etc.
+Os arredores são absolutamente perfeitos se você gosta de ficar quieto e central. Está localizado em uma das melhores partes de Oslo. Agradável e tranquilo, a apenas cinco minutos a pé da rua principal de Oslo, Karl Johan, Aker Brygge e Tjuvholmen, e a 10 minutos da famosa Vigelandsparken.</p>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Casas Baratas Legais, Guilherme Ribeiro - todos os direitos reservados.</p>
+    </footer>
+
+</body>
+</html>

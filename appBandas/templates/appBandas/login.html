@@ -1,0 +1,16 @@
+{% extends 'appBandas/layout.html' %}
+
+{% block content %}
+    <h3>Login</h3>
+    
+    {% if mensagem %}
+      <p>mensagem: {{ mensagem }}</p>
+    {% endif %}
+    <form action="{% url 'appBandas:login' %}" method="post">
+      {% csrf_token %}
+      <input type="text" name="username" placeholder="Username.." required>
+      <input type="password" name="password" placeholder="Password.." required>
+      <input type="submit" value="Entrar">
+    </form>      
+
+{% endblock %}

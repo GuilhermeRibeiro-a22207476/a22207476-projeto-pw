@@ -1,0 +1,18 @@
+{% extends "appFestivais/layout.html" %}
+
+{% block title %}Bandas{% endblock %}
+
+{% block content %}
+    {% for localizacao in localizacoes %}
+        <h2>{{ localizacao.cidade }}</h2>
+        <ul>
+        {% for festival in localizacao.festivais.all %}
+            <li><a href="{% url 'appFestivais:festival' festival.id %}">{{ festival.nome }}</a> -
+                {% for banda in festival.bandas.all %}
+                    {{ banda.nome }}{% if not forloop.last %}, {% endif %}
+                {% endfor %}
+            </li>
+        {% endfor %}
+        </ul>
+    {% endfor %}
+{% endblock %}

@@ -1,0 +1,10 @@
+{% extends 'artigos/layout.html' %}
+
+{% block content %}
+<h3>Novo Autor</h3>
+<form action="{% url 'artigos:novo_autor' %}" method="post">
+  {% csrf_token %}
+  {{ form.as_p }}
+  <input type="submit" value="Criar">
+</form>
+{% endblock %}

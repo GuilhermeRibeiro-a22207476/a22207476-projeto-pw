@@ -1,0 +1,20 @@
+{% extends "appFestivais/layout.html" %}
+
+{% block title %}{{ festival.nome }}{% endblock %}
+
+{% block content %}
+        <h1>{{ festival.nome }}</h1>
+        {% if festival.capa %}
+            <img src="{{ festival.capa.url }}" alt="Capa do Festival">
+        {% endif %}
+
+
+    <section>
+        <h2>Bandas:</h2>
+        <ul>
+            {% for banda in festival.bandas.all %}
+                <li>{{ banda.nome }}</li>
+            {% endfor %}
+        </ul>
+    </section>
+{% endblock %}

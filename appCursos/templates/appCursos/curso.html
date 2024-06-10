@@ -1,0 +1,23 @@
+{% extends "appCursos/layout.html" %}
+
+{% block title %}Detalhes do Curso{% endblock %}
+
+{% block content %}
+<h2>{{ curso.nome }}</h2>
+<p><strong>Apresentação:</strong> {{ curso.apresentacao }}</p>
+<p><strong>Objetivos:</strong> {{ curso.objetivos }}</p>
+<p><strong>Competências:</strong> {{ curso.competencias }}</p>
+
+<h3>Disciplinas</h3>
+<ul>
+    {% for disciplina in disciplinas %}
+        <li>
+            <a href="{% url 'appCursos:disciplina_detalhes' disciplina.id %}">{{ disciplina.nome }}</a>
+            {% if user.is_authenticated %}
+                <a href="{% url 'appCursos:editar_disciplina' disciplina.id %}" class="btn btn-sm btn-primary"><button>Editar</button></a>
+                <a href="{% url 'appCursos:apagar_disciplina' disciplina.id %}" class="btn btn-sm btn-danger" onclick="return confirm('Tem certeza que deseja apagar esta disciplina?');"><button>Apagar</button></a>
+            {% endif %}
+        </li>
+    {% endfor %}
+</ul>
+{% endblock %}

@@ -1,0 +1,21 @@
+{% extends "artigos/layout.html" %}
+
+{% block title %}
+    Lista de Artigos de {{ autor.nome }}
+{% endblock %}
+
+{% block content %}
+    <h2>Artigos de {{ autor.nome }}</h2>
+    <ul>
+    {% for artigo in artigos %}
+        <li>
+            <a href="{% url 'artigos:detalhe_artigo' artigo.id %}">{{ artigo.title }}</a> -
+            <a href="{% url 'artigos:comentarios_classificacoes' artigo.id %}">Ver Comentários</a>
+        </li>
+        {% if request.user.is_authenticated %}
+                <a href="{% url 'artigos:editar_artigo' artigo.id %}"><button>Editar</button></a>
+                <a href="{% url 'artigos:apagar_artigo' artigo.id %}" class="btn btn-danger" onclick="return confirm('Tem certeza que deseja apagar este artigo?');"><button>Remover</button></a>
+            {% endif %}
+    {% endfor %}
+    </ul>
+{% endblock %}

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Título Padrão{% endblock %}</title>
+    <style>
+    .errorlist {
+    display:none;
+}
+    body {
+            background-color: #28282B; /* Cor de fundo cinza */
+            color: white; /* Cor do texto */
+        }
+        header {
+            background-color: #1DB954 ; /* Cor cinzento */
+            color: white; /* Letras brancas */
+            text-align: center; /* Texto centralizado */
+            padding: 20px 0; /* Espaçamento interno */
+        }
+        a {
+            color: #1DB954; /* Cor do texto das hiperligações */
+            text-decoration: none; /* Remover sublinhado padrão */
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Web Bandas</h1>
+
+<a href="{% url 'appBandas:bandas' %}" class="btn btn-danger" onclick="return confirm('Tem certeza que deseja apagar este projeto?');"><button>Bandas</button></a>
+{% if request.user.is_authenticated %}
+    <a href="{% url 'appBandas:novo_banda' %}" class="btn btn-danger" onclick="return confirm('Tem certeza que deseja apagar este projeto?');"><button>Nova Banda</button></a>
+    <p>Username: {{ request.user.username }}</p>
+    <a href="{% url 'appBandas:logout' %}" class="btn btn-danger" onclick="return confirm('Tem certeza que deseja apagar este projeto?');"><button>Logout</button></a>
+{% else %}
+    <a href="{% url 'appBandas:login' %}" class="btn btn-danger" onclick="return confirm('Tem certeza que deseja apagar este projeto?');"><button>Login</button></a>
+{% endif %}
+
+    </header>
+
+    <main>
+        {% block content %}
+            <!-- Este bloco será substituído pelo conteúdo específico de cada página -->
+        {% endblock %}
+    </main>
+
+    <footer>
+        <!-- Rodapé comum a todas as páginas -->
+        <p>&copy; 2024 Meu Site de Música</p>
+    </footer>
+</body>
+</html>

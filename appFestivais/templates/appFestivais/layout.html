@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Título Padrão{% endblock %}</title>
+    <style>
+    body {
+            background-color: #28282B;
+            color: white;
+        }
+        header {
+            background-color: #1DB954 ;
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+        }
+        a {
+            color: #1DB954;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Festivais!</h1>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="{% url 'appFestivais:localizacoes' %}">Início</a></li>
+
+        </ul>
+    </nav>
+
+    <main>
+        {% block content %}
+
+        {% endblock %}
+    </main>
+
+    <footer>
+
+        <p>&copy; 2024</p>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,108 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Meu Portfólio{% endblock %}</title>
+    <style>
+        .errorlist {
+            display: none;
+        }
+        body {
+            background-color: white; /* Cor de fundo cinza */
+            color: black; /* Cor do texto */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            margin: 20;
+        }
+        header {
+            background-color: #8ed1fc; /* Cor cinzento */
+            color: white; /* Letras brancas */
+            text-align: center; /* Texto centralizado */
+            padding: 20px 0; /* Espaçamento interno */
+            width: 100%;
+        }
+        a {
+            color: #1DB954; /* Cor do texto das hiperligações */
+            text-decoration: none; /* Remover sublinhado padrão */
+        }
+        .container {
+            max-width: 800px;
+            margin: 20 auto;
+            padding: 20px;
+        }
+        .profile-container {
+            display: flex;
+            align-items: center;
+            justify-content: flex-start; /* Alinhar itens à esquerda */
+            margin-bottom: 20px;
+        }
+        .profile-image {
+            margin-right: 20px;
+        }
+        .profile-info {
+            max-width: 600px;
+        }
+        .rounded-image {
+            border-radius: 30%; /* Torna a imagem redonda */
+            max-width: 150px; /* Define um tamanho máximo para a imagem */
+        }
+        footer {
+            text-align: center;
+            padding: 20px 0;
+            background-color: #8ed1fc;
+            color: white;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+        .auth-buttons {
+            margin-top: 10px;
+        }
+        .auth-buttons a, .auth-buttons form {
+            display: inline-block;
+            margin: 0 5px;
+        }
+        .auth-buttons button, .auth-buttons a {
+            background-color: grey;
+            color: black;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            text-decoration: none;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Meu Portfólio</h1>
+
+        <a href="{% url 'portfolio:home' %}"><button>Home</button></a>
+         {% if user.is_authenticated %}
+            <a href="{% url 'portfolio:novo_projeto' %}"><button>Novo Projeto</button></a>
+            <p>Username: {{ user.username }}</p>
+            <form method="post" action="{% url 'portfolio:logout' %}" class="auth-buttons">
+                {% csrf_token %}
+                <button type="submit">Logout</button>
+            </form>
+        {% else %}
+            <a href="{% url 'portfolio:login' %}"><button>Login</button></a>
+        {% endif %}
+    </header>
+
+    <main>
+        {% block content %}
+            <!-- Este bloco será substituído pelo conteúdo específico de cada página -->
+        {% endblock %}
+    </main>
+
+    <footer>
+        <!-- Rodapé comum a todas as páginas -->
+        <p>&copy; 2024 Meu Portfólio</p>
+    </footer>
+</body>
+</html>

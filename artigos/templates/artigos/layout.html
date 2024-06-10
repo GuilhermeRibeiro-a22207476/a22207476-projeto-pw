@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Título Padrão{% endblock %}</title>
+    <style>
+        body {
+            background-color: #181818; /* Cor de fundo cinza */
+            color: white; /* Cor do texto */
+        }
+        header {
+            background-color: #262626; /* Cor do cabeçalho */
+            color: #fd0202; /* Cor do texto do cabeçalho */
+            text-align: center; /* Texto centralizado */
+            padding: 20px 0; /* Espaçamento interno */
+        }
+        a {
+            color: #4385df; /* Cor do texto das hiperligações */
+            text-decoration: none; /* Remover sublinhado padrão */
+        }
+        nav {
+            background-color: #262626; /* Cor de fundo do nav */
+            padding: 10px 0; /* Espaçamento interno */
+        }
+        nav ul {
+            list-style-type: none; /* Remover marcadores da lista */
+            padding: 0; /* Remover padding */
+            text-align: center; /* Centralizar texto */
+        }
+        nav ul li {
+            display: inline; /* Exibir itens em linha */
+            margin: 0 10px; /* Margem entre itens */
+        }
+        nav ul li a {
+            color: #4385df; /* Cor dos links */
+        }
+        footer {
+            background-color: #262626; /* Cor do fundo do rodapé */
+            color: white; /* Cor do texto do rodapé */
+            text-align: center; /* Texto centralizado */
+            padding: 10px 0; /* Espaçamento interno */
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Artigos</h1>
+
+<a href="{% url 'artigos:lista_autores' %}"><button>Autores</button></a>
+{% if request.user.is_authenticated %}
+    <a href="{% url 'artigos:novo_autor' %}"><button>Novo Autor</button></a>
+    <p>Username: {{ request.user.username }}</p>
+    <a href="{% url 'artigos:logout' %}"><button>Logout</button></a>
+{% else %}
+    <a href="{% url 'artigos:login' %}"><button>Login</button></a>
+{% endif %}
+
+    </header>
+
+
+
+    <main>
+        {% block content %}
+            <!-- Este bloco será substituído pelo conteúdo específico de cada página -->
+        {% endblock %}
+    </main>
+
+    <footer>
+        <!-- Rodapé comum a todas as páginas -->
+        <p>&copy; 2024 Meu Site de Artigos</p>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,10 @@
+{% extends "appBandas/layout.html" %}
+
+{% block title %}Música: {{ musica.nome }}{% endblock %}
+
+{% block content %}
+    <h2>Música: {{ musica.nome }}</h2>
+    <p>Álbum: {{ musica.album.nome }}</p>
+    <p>Duração: {{ musica.duracao }}</p>
+    <p>Spotify: <a href="{{ musica.spotify }}">{{ musica.spotify }}</a></p>
+{% endblock %}
